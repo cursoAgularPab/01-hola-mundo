@@ -2,25 +2,25 @@
     <div class="col">
         <h1>*ngIf</h1>
         <hr>
-        <div class="card text-bg-secondary mb-3" style="width: 100%;">
+
+        <div *ngIf="this.mostrar" class="card text-bg-secondary mb-3" style="width: 100%;">
             <div class="card-body">
-                <h5 class="card-title">Secondary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{{ this.frase.autor }}</h5>
+                <p class="card-text">{{ this.frase.mensaje }}</p>
             </div>
         </div>
-        <button class="btn btn-outline-dark" style="width: 100%;">
+
+        <button (click)=" this.mostrar = !mostrar " class="btn btn-outline-dark" style="width: 100%;">
             Mostrar/Ocultar
         </button>
+
     </div>
     <div class="col">
         <h1>*ngFor</h1>
         <hr>
         <ul class="list-group">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            <li *ngFor=" let personaje of this.personajes; let i = index " class="list-group-item">
+                {{ i + 1 }} - {{ personaje }}</li>
         </ul>
     </div>
 </div>
